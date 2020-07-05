@@ -1,0 +1,73 @@
+.features {
+
+    background-color: $color-grey-light-1;
+    //determine from shere to where they go:
+    grid-column: center-start / center-end;
+
+    margin: 15rem 0;
+
+    //grid inside grid:
+    display: grid;
+    //subgrid?
+
+    //grid-template-columns: repeat(3, 1fr);    //3 equally sized column
+    //grid-template-rows: auto auto; -- don't need to be created
+    //make responsive columns: auto-fit!!!!  create as many tracks can fit baed on the with we define
+    grid-template-columns: repeat(auto-fit,  minmax(25rem, 1fr)); //beteen 25rem and 1fractual unit
+   
+    //adding gap:
+    grid-gap: 6rem;
+    //align item inside cells:
+    align-items: start; 
+
+    /*
+    ///////////// //in order for browser support the css grid:
+    
+    @supports(display:grid) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,  minmax(25rem, 1fr));
+        grid-gap: 6rem;
+        align-items: start; 
+    }
+    */
+
+}
+
+//couldbe reusable
+
+.feature {
+    /*
+  ////////floats on each of features because css grid browser support
+  
+  float: left;
+    width: 33.333%;
+    margin-bottom: 6rem;
+
+    @supports (display: grid) {
+        width: auto;
+        margin-bottom: 0;
+    }
+    */
+
+    display: grid;
+    grid-template-columns:min-content 1fr;
+    //we have implicit grid, bec we didn't define the rows
+
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 2.5rem;
+
+    &__icon {
+        fill: $color-primary;
+        width: 4.5rem;
+        height: 4.5rem;
+
+        grid-row: 1 / span 2;   ///span from 1 to 2.row
+        //
+        transform: translateY(-1rem);
+    }
+
+    &__text {
+        font-size: 1.7rem;
+    }
+
+}
